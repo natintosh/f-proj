@@ -24,8 +24,10 @@ func main() {
 	fmt.Println("******* DATASET ********")
 	fmt.Println(rawData)
 
+	shuffledData := base.Shuffle(rawData)
+
 	// Create a 60-40 training-test split
-	trainData, testData := base.InstancesTrainTestSplit(rawData, 0.60)
+	trainData, testData := base.InstancesTrainTestSplit(shuffledData, 0.60)
 
 	tree = ensemble.NewRandomForest(70, 3)
 	err = tree.Fit(trainData)

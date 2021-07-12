@@ -23,6 +23,9 @@ func main() {
 
 	var tree base.Classifier
 
+	// Shuffle the raw dataset
+	shuffledData := base.Shuffle(rawData)
+
 	// Discretise the blood test dataset with Chi-Merge
 	// filt := filters.NewChiMergeFilter(rawData, 0.999)
 
@@ -35,7 +38,7 @@ func main() {
 	// bloodF := base.NewLazilyFilteredInstances(rawData, filt)
 
 	// Create a 60-40 training-test split
-	trainData, testData := base.InstancesTrainTestSplit(rawData, 0.60)
+	trainData, testData := base.InstancesTrainTestSplit(shuffledData, 0.60)
 
 	//
 	// First up, use ID3

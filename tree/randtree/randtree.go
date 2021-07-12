@@ -35,8 +35,10 @@ func main() {
 
 	// bloodF := base.NewLazilyFilteredInstances(rawData, filt)
 
+	shuffledData := base.Shuffle(rawData)
+
 	// Create a 60-40 training-test split
-	trainData, testData := base.InstancesTrainTestSplit(rawData, 0.60)
+	trainData, testData := base.InstancesTrainTestSplit(shuffledData, 0.60)
 	// Consider two randomly-chosen attributes
 	tree = trees.NewRandomTree(2)
 	err = tree.Fit(trainData)
