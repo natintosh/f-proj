@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	rawData, err := base.ParseCSVToInstances("datasets/blood_datasets_1.csv", true)
+	rawData, err := base.ParseCSVToInstances("../datasets/blood_datasets_1.csv", true)
 
 	if err != nil {
 		fmt.Printf("\n Error occur while parsing data: %s ", err.Error())
